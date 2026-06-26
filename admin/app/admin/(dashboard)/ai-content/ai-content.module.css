@@ -1,0 +1,165 @@
+/* ===== AI Content Module CSS ===== */
+/* Minified original styles preserved below */
+.panel,.result,.mode,.copyBar{background:#fff;border-radius:14px;padding:22px;box-shadow:0 4px 12px rgba(0,0,0,.06);margin-bottom:22px}.panel h2{font-size:20px;color:#111827;margin-bottom:6px}.panel p{color:#6b7280;font-size:14px}.inputGrid{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end;margin-top:20px}.inputGrid label{display:flex;flex-direction:column;gap:8px;font-weight:700;color:#374151}.inputGrid input,.advanced input,.advanced textarea,.advanced select{width:100%;padding:13px 14px;border:1px solid #d1d5db;border-radius:10px;font-size:15px;background:#fff}.advanced textarea{resize:vertical;margin-top:10px;font-family:inherit}.advanced select{margin-top:10px;max-width:220px}.inputGrid button,.actions button,.copyBar button{border:0;border-radius:10px;padding:12px 15px;font-weight:700;cursor:pointer;background:#e5e7eb;color:#111827}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.actions .primary{background:#2563eb;color:white}.advanced{background:#f9fafb;border-radius:12px;padding:16px;margin-top:15px}.advanced p{margin-top:8px}.loading{margin-top:18px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;border-radius:12px;padding:15px;display:flex;gap:14px;align-items:center}.spinner{width:28px;height:28px;border:4px solid #bfdbfe;border-top-color:#2563eb;border-radius:50%;animation:spin .9s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.mode{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mode div{background:#f9fafb;border-radius:12px;padding:15px}.mode span{display:block;color:#6b7280;font-size:13px;margin-bottom:8px}.research,.concept{display:inline-block;padding:6px 11px;border-radius:20px;font-size:13px}.research{background:#dcfce7;color:#166534}.concept{background:#fef3c7;color:#92400e}.warning{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;border-radius:12px;padding:14px 16px;margin-bottom:22px}.copyBar{display:flex;gap:10px;flex-wrap:wrap}.tabs{display:flex;flex-wrap:wrap;gap:10px;border-bottom:1px solid #e5e7eb;padding-bottom:15px;margin-bottom:20px}.tabs button{border:0;background:#f3f4f6;color:#374151;padding:10px 13px;border-radius:10px;cursor:pointer;font-weight:700}.tabs .active{background:#2563eb;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.block{line-height:1.7}.block h2{font-size:19px;color:#111827;margin-bottom:10px}.block h4{margin-top:14px;color:#374151}.block ul{padding-left:20px}.block a{color:#2563eb}.slogan{background:#f3f4f6;border-left:5px solid #2563eb;padding:14px;margin-top:15px;font-size:20px;font-weight:700}.faq{background:#f9fafb;border-radius:10px;padding:13px 15px;margin-bottom:12px}.scoreRow{display:grid;grid-template-columns:1fr 90px 140px;gap:12px;align-items:center;background:#f9fafb;border-radius:10px;padding:12px 14px;margin-bottom:10px}.scoreRow em{font-style:normal;text-align:center;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:700}.good{background:#dcfce7;color:#166534}.medium{background:#fef3c7;color:#92400e}.weak{background:#fee2e2;color:#991b1b}.imageGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.imageGrid figure{margin:0;padding:10px;border:2px solid transparent;border-radius:18px;background:#f9fafb;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}.imageGrid figure:hover,.imageGrid figure:focus-visible{transform:scale(1.035);box-shadow:0 16px 36px rgba(15,23,42,.16);border-color:#93c5fd;outline:none}.imageGrid figure:hover .aiImage,.imageGrid figure:focus-visible .aiImage{transform:scale(1.02)}.imageGrid figcaption{margin-top:8px;color:#6b7280;font-size:14px}.selectedImage{border-color:#2563eb!important;background:#eff6ff!important;box-shadow:0 12px 30px rgba(37,99,235,.18)}.selectedBadge{display:inline-block;margin-top:10px;border-radius:999px;background:#dcfce7;color:#166534;padding:8px 12px;font-weight:700;font-size:13px}.aiImage{width:100%;max-width:720px;border-radius:16px;border:1px solid #e5e7eb;margin-top:14px;transition:transform .18s ease}@media(max-width:900px){.inputGrid,.mode,.grid,.scoreRow{grid-template-columns:1fr}}
+.uploadBox{background:#f8fafc;border:1px solid #dbeafe;border-radius:12px;padding:16px;margin-top:15px}.uploadBox b{display:block;margin-bottom:10px;color:#111827}.uploadBox input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;background:#fff}.uploadBox p{margin-top:8px;color:#6b7280;font-size:14px}.uploadBox small{display:inline-block;margin-top:8px;color:#1d4ed8;font-weight:700}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* ===== PANEL & CARD ANIMATIONS ===== */
+.panel {
+  transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+  animation: fadeSlideUp 0.4s ease both;
+}
+.panel:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.09) !important;
+  transform: translateY(-2px);
+}
+
+.result {
+  animation: fadeSlideUp 0.4s 0.1s ease both;
+  transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+}
+.result:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.09) !important;
+  transform: translateY(-2px);
+}
+
+.mode div {
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.mode div:hover {
+  background: #f1f5f9 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ===== INPUT FOCUS ANIMATIONS ===== */
+.inputGrid input:focus,
+.advanced input:focus,
+.advanced textarea:focus,
+.advanced select:focus,
+.uploadBox input:focus {
+  outline: none !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12) !important;
+  background: #fafcff !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease !important;
+}
+
+/* ===== TABS ANIMATIONS ===== */
+.tabs button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+.tabs button:hover {
+  background: #e5e7eb !important;
+  transform: translateY(-1px);
+}
+.tabs button:active {
+  transform: translateY(0) scale(0.97) !important;
+  transition: all 0.1s ease !important;
+}
+.tabs .active {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* ===== BUTTON ANIMATIONS ===== */
+.inputGrid button,
+.copyBar button {
+  transition: all 0.2s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+.inputGrid button:hover,
+.copyBar button:hover {
+  background: #d1d5db !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.inputGrid button:active,
+.copyBar button:active {
+  transform: translateY(0) scale(0.97) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Actions primary button */
+.actions .primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.actions .primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.45s ease;
+}
+.actions .primary:hover::before {
+  transform: translateX(100%);
+}
+.actions .primary:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3) !important;
+}
+.actions .primary:active {
+  transform: translateY(0) scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* ===== FAQ HOVER ===== */
+.faq {
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  cursor: default;
+}
+.faq:hover {
+  background: #f1f5f9 !important;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ===== SCORE ROW HOVER ===== */
+.scoreRow {
+  transition: background 0.2s ease, transform 0.2s ease !important;
+  cursor: default;
+}
+.scoreRow:hover {
+  background: #f1f5f9 !important;
+  transform: translateX(4px);
+}
+
+/* ===== SLOGAN HOVER ===== */
+.slogan {
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+  cursor: default;
+}
+.slogan:hover {
+  box-shadow: 0 4px 16px rgba(37,99,235,0.1);
+  transform: translateX(4px);
+}
+
+/* ===== WARNING ENTRANCE ===== */
+.warning {
+  animation: fadeSlideUp 0.3s ease both;
+}
+
+/* ===== LOADING ENTRANCE ===== */
+.loading {
+  animation: scaleIn 0.3s ease both;
+}

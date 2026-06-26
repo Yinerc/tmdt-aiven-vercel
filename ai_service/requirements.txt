@@ -1,0 +1,17 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+requests==2.32.3
+beautifulsoup4==4.12.3
+trafilatura==2.0.0
+duckduckgo-search==7.2.1
+transformers==4.48.0
+datasets==3.2.0
+sentencepiece==0.2.0
+accelerate==1.2.1
+torch
+diffusers==0.32.2
+safetensors==0.5.2
+Pillow==11.1.0
+python-multipart==0.0.20
+python-dotenv==1.0.1

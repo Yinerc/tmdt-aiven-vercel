@@ -1,0 +1,217 @@
+/*admin\app\register\register.module.css*/
+.page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 34%),
+    linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  color: #0f172a;
+}
+
+.card {
+  width: min(1120px, 100%);
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 28px 90px rgba(15, 23, 42, 0.14);
+}
+
+.leftPanel {
+  padding: 54px;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.72), rgba(30, 64, 175, 0.82)),
+    url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80") center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: fit-content;
+  margin-bottom: 74px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: -0.04em;
+}
+
+.leftPanel h1 {
+  max-width: 430px;
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+}
+
+.leftPanel p {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.benefits {
+  margin-top: 38px;
+  display: grid;
+  gap: 14px;
+}
+
+.benefits span {
+  width: fit-content;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  font-weight: 700;
+}
+
+.formPanel {
+  padding: 52px 58px;
+}
+
+.formHeader span {
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.formHeader h2 {
+  margin: 8px 0 8px;
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.formHeader p {
+  margin: 0 0 26px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.form label {
+  display: grid;
+  gap: 8px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.form strong {
+  color: #dc2626;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  background: #f8fafc;
+  padding: 14px 15px;
+  color: #0f172a;
+  font: inherit;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form button {
+  margin-top: 6px;
+  border: 0;
+  border-radius: 16px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 15px 18px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.successBox,
+.errorBox {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+.successBox {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.errorBox {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.loginText {
+  margin: 24px 0 0;
+  color: #64748b;
+  text-align: center;
+}
+
+.loginText a {
+  color: #2563eb;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel,
+  .formPanel {
+    padding: 34px 24px;
+  }
+
+  .logo {
+    margin-bottom: 34px;
+  }
+
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+}

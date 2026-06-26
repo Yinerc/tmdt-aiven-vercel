@@ -1,0 +1,363 @@
+YEU CAU GIAO DIEN TRANG USER HIEN THI NOI DUNG AI TMDT
+
+1. Muc tieu
+
+Trang user dung de hien thi noi dung san pham/landing page duoc AI tao ra.
+
+Muc tieu demo:
+
+Admin tao noi dung bang AI -> chon 1 anh trong 4 bien the -> bam luu hoac chuyen du lieu demo -> trang user hien thi nhu mot landing page ban hang.
+
+Luu y hien tai:
+
+- Tam thoi chua uu tien database.
+- Co the dung du lieu demo, local state, JSON copy, hoac mock data de hien thi truoc.
+- Sau nay moi ket noi database de luu va doc noi dung that.
+
+
+2. Flow hoat dong tong quat
+
+Buoc 1:
+Admin vao trang /admin/ai-content.
+
+Buoc 2:
+Admin nhap ten san pham.
+
+Buoc 3:
+AI tao noi dung:
+
+- Ten san pham chuan hoa
+- Tom tat
+- Thong so ky thuat
+- Loi ich
+- Landing page
+- Slogan
+- Social content
+- SEO
+- FAQ
+- Danh gia chat luong
+- Nguon tham khao
+- Doi tuong khach hang
+- Uu diem / han che
+- 4 bien the anh AI
+
+Buoc 4:
+Admin chon 1 anh trong 4 bien the.
+
+Buoc 5:
+Tam thoi khi chua co database:
+
+- Co the copy JSON tu admin.
+- Hoac dung mock data trong trang user.
+- Hoac truyen du lieu bang localStorage/sessionStorage neu can demo nhanh.
+
+Buoc 6:
+Trang user hien thi noi dung AI nhu landing page san pham.
+
+Buoc 7 sau nay:
+Khi co database, admin bam "Luu noi dung AI", backend luu vao DB, trang user doc du lieu tu DB.
+
+
+3. Trang user nen dat o dau
+
+De demo, nen tao 1 trong cac route sau:
+
+/ai-product-preview
+
+hoac:
+
+/landing/ai-product
+
+hoac neu co product slug:
+
+/products/[slug]
+
+Khuyen nghi giai doan dau:
+
+/ai-product-preview
+
+Vi chua co database nen route nay de demo hon.
+
+
+4. Yeu cau giao dien tong the
+
+Trang user phai giong mot landing page ban hang thuc te, khong phai trang admin.
+
+Cam giac giao dien:
+
+- Sach se
+- Hien dai
+- De doc
+- Tap trung vao san pham
+- Co CTA ro rang
+- Anh san pham noi bat
+- Noi dung duoc chia thanh cac section de nguoi mua de scan
+
+
+5. Cac section bat buoc tren trang user
+
+5.1. Hero section
+
+Hien thi:
+
+- Anh san pham AI da chon
+- Ten san pham chuan hoa
+- Hero title
+- Hero subtitle
+- CTA chinh: "Mua ngay" hoac "Xem chi tiet"
+- Badge mode neu can: Research mode / Concept mode
+
+Luu y:
+
+Neu la Concept mode, can co ghi chu nho:
+
+Anh va noi dung la ban concept AI, can kiem chung truoc khi su dung thuong mai.
+
+
+5.2. Tom tat san pham
+
+Hien thi:
+
+- Product summary
+- Mo ta san pham
+
+Muc tieu:
+
+Nguoi dung doc nhanh va hieu san pham la gi.
+
+
+5.3. Loi ich noi bat
+
+Hien thi 3-6 loi ich dang card/icon/list.
+
+Vi du:
+
+- Nghe nhac va hop online tien loi
+- Ket noi khong day gon gang
+- Phu hop hoc tap, lam viec va di chuyen
+
+
+5.4. Thong so ky thuat
+
+Hien thi dang bang hoac list.
+
+Neu thong tin can kiem chung, hien ro:
+
+- Can kiem chung
+- Can bo sung
+
+Khong nen trinh bay nhu thong tin chac chan neu AI chua co nguon.
+
+
+5.5. Ly do nen chon san pham
+
+Lay tu landingPage.whyChooseSection.
+
+Section nay co vai tro thuyet phuc nguoi mua.
+
+
+5.6. Uu diem va han che
+
+Hien thi 2 cot:
+
+- Uu diem
+- Han che / can can nhac
+
+Muc tieu:
+
+Lam trang user minh bach hon, tang do tin cay.
+
+
+5.7. Doi tuong khach hang phu hop
+
+Hien thi cac nhom khach hang:
+
+- Sinh vien
+- Nhan vien van phong
+- Nguoi hay di chuyen
+
+Co the hien thi bang badge/chip.
+
+
+5.8. FAQ
+
+Hien thi 3-5 cau hoi thuong gap.
+
+Co the dung accordion hoac list.
+
+
+5.9. Nguon tham khao
+
+Neu Research mode:
+
+- Hien danh sach URL nguon tham khao
+- Mo link trong tab moi
+
+Neu Concept mode:
+
+Hien thong bao:
+
+Chua co nguon tham khao cong khai. Noi dung hien tai la concept AI va can kiem chung.
+
+
+5.10. CTA cuoi trang
+
+Hien lai:
+
+- Ten san pham
+- Slogan
+- Nut "Mua ngay" / "Lien he tu van" / "Them vao gio hang"
+
+Neu chua co chuc nang gio hang, nut co the la demo.
+
+
+6. SEO tren trang user
+
+Trang user nen dung SEO content AI tao:
+
+- seo.title
+- seo.metaDescription
+- seo.keywords
+- seo.slug
+
+Trong Next.js, sau nay co the dua vao metadata.
+
+Tam thoi neu chua lam metadata dong, hien thi SEO trong section an/hoac chi dung cho dev.
+
+
+7. Trang thai Research mode va Concept mode
+
+7.1. Research mode
+
+Dieu kien:
+
+- AI co sources
+- researchStatus = success
+
+Giao dien nen hien:
+
+- Badge Research mode mau xanh
+- Nguon tham khao
+- Ghi chu: Noi dung duoc tong hop tu nguon web cong khai
+
+
+7.2. Concept mode
+
+Dieu kien:
+
+- Khong co sources
+- researchStatus = no_sources_or_rate_limited
+
+Giao dien nen hien:
+
+- Badge Concept mode mau vang/cam
+- Canh bao nhe:
+
+San pham chua co nguon cong khai dang tin cay. Noi dung va anh la ban concept AI, can kiem chung truoc khi su dung thuong mai.
+
+
+8. Du lieu can nhan tu admin AI
+
+Trang user can nhan/can co object du lieu gom:
+
+- standardizedProductName
+- productSummary
+- description
+- specifications
+- benefits
+- landingPage.heroTitle
+- landingPage.heroSubtitle
+- landingPage.cta
+- landingPage.benefitSection
+- landingPage.whyChooseSection
+- slogan
+- seo.title
+- seo.metaDescription
+- seo.keywords
+- seo.slug
+- faq
+- targetCustomers
+- pros
+- cons
+- sources
+- researchStatus
+- selectedImageUrl
+
+
+9. Cach demo khi chua co database
+
+Co 3 cach:
+
+Phuong an 1: Mock data
+
+- Tao file mock data trong frontend.
+- Trang user doc mock data va hien thi.
+- De lam nhat.
+
+Phuong an 2: Copy JSON
+
+- Admin bam Copy JSON.
+- Dan JSON vao file mock data.
+- Trang user hien thi theo JSON do.
+
+Phuong an 3: localStorage
+
+- Admin tao noi dung xong bam "Xem trang user".
+- Luu result vao localStorage.
+- Trang user doc localStorage de render.
+- Phu hop demo nhanh, chua can database.
+
+Khuyen nghi:
+
+Giai doan hien tai nen dung Phuong an 3 neu muon demo lien mach.
+Neu muon don gian va on dinh, dung Phuong an 2.
+
+
+10. Yeu cau UX
+
+- Trang user phai de doc tren desktop va mobile.
+- Anh san pham phai nam o khu vuc dau trang.
+- CTA phai ro rang.
+- Noi dung chia thanh section ngan, khong do ca JSON ra man hinh.
+- Neu co Concept mode, canh bao khong duoc qua lon nhung phai de thay.
+- Neu khong co thong tin nao do, hien "Can kiem chung" hoac "Can bo sung", khong de trong trang.
+
+
+11. Yeu cau toi thieu de chap nhan
+
+Trang user duoc xem la dat yeu cau neu co:
+
+- Hero section co anh AI da chon
+- Ten san pham
+- Tom tat/mo ta
+- Loi ich
+- Thong so
+- Landing content
+- FAQ
+- Nguon tham khao hoac canh bao Concept mode
+- CTA
+
+
+12. Yeu cau nang cao nen co
+
+- Accordion FAQ
+- Badge mode
+- Chips doi tuong khach hang
+- Bang thong so ky thuat
+- Section uu diem/han che 2 cot
+- Nut copy link trang user
+- Nut quay lai trang admin AI
+
+
+13. Ket luan
+
+Trang user khong can lam database ngay.
+
+Uu tien hien thi duoc noi dung AI da tao thanh mot landing page san pham dep, de demo cho giang vien thay:
+
+- AI tao duoc noi dung TMDT
+- AI tao duoc anh san pham
+- Admin chon anh dep nhat
+- User thay noi dung do tren giao dien ban hang
+
+Sau khi giao dien user on, moi tiep tuc lam database de luu noi dung AI that.

@@ -1,0 +1,114 @@
+/*admin\app\admin\admin.css*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f6f9;
+}
+
+.admin-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: #111827;
+  color: white;
+  padding: 24px 16px;
+}
+
+.admin-logo {
+  margin: 0 0 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-menu a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.admin-menu a:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.admin-main {
+  flex: 1;
+  min-height: 100vh;
+}
+
+.admin-header {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #111827;
+}
+
+.admin-content {
+  padding: 24px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.dashboard-card p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}

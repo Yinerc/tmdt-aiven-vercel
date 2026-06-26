@@ -1,0 +1,335 @@
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes barGrow {
+  from { width: 0%; }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.page {
+  padding: 24px;
+  color: #111827;
+  animation: fadeSlideUp 0.4s ease both;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.header h1 {
+  margin: 4px 0 8px;
+  font-size: 28px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subTitle {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.subTitle code {
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.exportButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exportButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.45s ease;
+}
+
+.exportButton:hover::before {
+  transform: translateX(100%);
+}
+
+.exportButton:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.28);
+}
+
+.exportButton:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.card,
+.panel {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.panel:hover {
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.card {
+  padding: 18px;
+  /* Staggered entrance handled via nth-child below */
+  animation: scaleIn 0.4s ease both;
+  cursor: default;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+.card:hover {
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.card strong {
+  display: block;
+  font-size: 23px;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.card:hover strong {
+  color: #2563eb;
+}
+
+.card small {
+  color: #9ca3af;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel {
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.panelHeader span,
+.panelHeader a {
+  color: #6b7280;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.chartList {
+  display: grid;
+  gap: 12px;
+}
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) 120px 60px;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border-radius: 8px;
+  padding: 4px 6px;
+  cursor: default;
+}
+
+.chartRow:hover {
+  background: #f8fafc;
+  transform: translateX(4px);
+}
+
+.chartRow small,
+.table small,
+.statusItem small {
+  display: block;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.barTrack {
+  height: 12px;
+  background: #eef2f7;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
+  border-radius: 999px;
+  /* Bar grows in from zero width on page load */
+  animation: barGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+.statusList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.statusItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  background: #f9fafb;
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.statusItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.statusItem span {
+  font-weight: 700;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 14px;
+  vertical-align: top;
+  transition: background 0.15s ease;
+}
+
+.table th {
+  color: #6b7280;
+  background: #f9fafb;
+  font-weight: 700;
+}
+
+.table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+.table tbody tr:active td {
+  background: #eff6ff;
+  transition: background 0.05s ease;
+}
+
+.empty {
+  color: #6b7280;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .header,
+  .gridTwo {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chartRow {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+
+  .chartRow b,
+  .chartRow small {
+    grid-column: 2;
+  }
+}

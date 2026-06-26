@@ -1,0 +1,491 @@
+/* admin/app/admin/login.css */
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+/* Page load: fade + slide up */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shield floating up and down */
+@keyframes floatShield {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Orb slow drift */
+@keyframes driftOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -15px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.97);
+  }
+}
+
+/* Error shake */
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-8px); }
+  30%       { transform: translateX(8px); }
+  45%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  75%       { transform: translateX(-3px); }
+  90%       { transform: translateX(3px); }
+}
+
+/* Button arrow slide on hover */
+@keyframes arrowSlide {
+  0%   { transform: translateX(0); opacity: 1; }
+  50%  { transform: translateX(6px); opacity: 0; }
+  51%  { transform: translateX(-6px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Pulse ring around avatar */
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+/* Feature card stagger enter */
+@keyframes featureEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Spinner for button loading feel */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== PAGE WRAPPER ===== */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== LEFT PANEL – Branding ===== */
+.login-left {
+  background: linear-gradient(145deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Animated decorative circles */
+.login-left::before {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  top: -120px;
+  right: -120px;
+  pointer-events: none;
+  animation: driftOrb 12s ease-in-out infinite;
+}
+
+.login-left::after {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  bottom: -80px;
+  left: -80px;
+  pointer-events: none;
+  animation: driftOrb 16s ease-in-out infinite reverse;
+}
+
+.circle-accent {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: driftOrb 20s ease-in-out infinite;
+}
+
+.login-brand-area {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  animation: fadeSlideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Floating + pulsing shield icon */
+.brand-icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  font-size: 32px;
+  backdrop-filter: blur(8px);
+  animation: floatShield 4s ease-in-out infinite, pulseRing 3s ease-out infinite;
+  cursor: default;
+}
+
+.brand-site-name {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.brand-tagline {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto 40px;
+}
+
+/* Feature cards with staggered entrance */
+.brand-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.brand-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: left;
+  cursor: default;
+  /* Staggered entrance animation */
+  animation: featureEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.brand-feature-item:nth-child(1) { animation-delay: 0.3s; }
+.brand-feature-item:nth-child(2) { animation-delay: 0.45s; }
+.brand-feature-item:nth-child(3) { animation-delay: 0.6s; }
+.brand-feature-item:nth-child(4) { animation-delay: 0.75s; }
+
+/* Feature card hover: slide right + highlight */
+.brand-feature-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(6px);
+}
+
+.feature-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.brand-feature-item:hover .feature-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.feature-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ===== RIGHT PANEL – Login Form ===== */
+.login-right {
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+  animation: fadeSlideUp 0.6s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Top badge */
+.login-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  animation: fadeSlideUp 0.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.login-box h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  animation: fadeSlideUp 0.5s 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.login-box p {
+  margin: 0 0 28px;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  animation: fadeSlideUp 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Error alert with shake */
+.login-error {
+  padding: 10px 14px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: shakeError 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Field group */
+.form-field {
+  margin-bottom: 18px;
+  animation: fadeSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.form-field:nth-of-type(1) { animation-delay: 0.35s; }
+.form-field:nth-of-type(2) { animation-delay: 0.45s; }
+
+.login-box label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #374151;
+  transition: color 0.2s ease;
+}
+
+/* Label turns blue when input is focused */
+.form-field:focus-within label {
+  color: #2563eb;
+}
+
+/* Input wrapper for icon positioning */
+.input-wrapper {
+  position: relative;
+}
+
+/* Icon transitions to blue on focus */
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Icon animates when parent form-field is focused */
+.form-field:focus-within .input-icon {
+  color: #2563eb;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease,
+              transform 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.login-box input::placeholder {
+  color: #cbd5e1;
+  transition: opacity 0.2s ease;
+}
+
+/* Input float-up micro-scale when focused */
+.login-box input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  background: #fafcff;
+  transform: translateY(-1px);
+}
+
+/* Placeholder fades when typing */
+.login-box input:not(:placeholder-shown)::placeholder {
+  opacity: 0;
+}
+
+/* Submit button */
+.login-box button[type="submit"] {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  background: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlideUp 0.5s 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Ripple shimmer on hover */
+.login-box button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.login-box button[type="submit"]:hover::before {
+  transform: translateX(100%);
+}
+
+.login-box button[type="submit"]:hover {
+  background: #1d4ed8;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+  letter-spacing: 0.04em;
+}
+
+/* Press down on click */
+.login-box button[type="submit"]:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  transition: all 0.1s ease;
+}
+
+/* Footer */
+.login-footer-note {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  animation: fadeSlideUp 0.5s 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-left {
+    padding: 40px 32px;
+    min-height: 220px;
+  }
+
+  .login-left::before,
+  .login-left::after,
+  .circle-accent {
+    display: none;
+  }
+
+  .brand-features {
+    display: none;
+  }
+
+  .brand-tagline {
+    margin-bottom: 0;
+  }
+
+  .login-right {
+    padding: 40px 24px;
+  }
+}
