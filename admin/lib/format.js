@@ -27,17 +27,26 @@ export function formatDateTime(value) {
   return new Date(value).toLocaleString("vi-VN");
 }
 
-export function formatStatus(status) {
+export function statusLabel(status) {
   const map = {
     pending: "Chờ xử lý",
     processing: "Đang xử lý",
     completed: "Hoàn thành",
     cancelled: "Đã hủy",
+    canceled: "Đã hủy",
     paid: "Đã thanh toán",
     unpaid: "Chưa thanh toán",
+    confirmed: "Đã xác nhận",
+    shipping: "Đang giao",
+    delivered: "Đã giao",
+    failed: "Thất bại",
   };
 
   return map[status] || status || "";
+}
+
+export function formatStatus(status) {
+  return statusLabel(status);
 }
 
 export default {
@@ -47,4 +56,5 @@ export default {
   formatDate,
   formatDateTime,
   formatStatus,
+  statusLabel,
 };
